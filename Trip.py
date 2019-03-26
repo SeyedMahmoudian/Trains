@@ -1,6 +1,6 @@
 from itertools import tee
-import NoSuchRoute
-import TripStop
+from NoSuchRoute import NoSuchRoute
+from TripStop import TripStop
 
 class Trip:
 
@@ -29,8 +29,8 @@ class Trip:
                     start.nextstop=target
                     target.prevstop=start
                     yield(start,target)
-            else:
-                raise NoSuchRoute()
+                else:
+                     raise NoSuchRoute()
 
     def distance(self):
         distances=[]

@@ -12,7 +12,7 @@ class TripStop:
         return self.station.connections()
 
     def connections(self):
-        return self.station.connections()
+        return self.station.connecton()
 
-    def connecition_names(self):
+    def connection_names(self):
         return [n.name for n in self.connections()]

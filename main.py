@@ -1,4 +1,5 @@
-import RailSystem, NoSuchRoute,NoSuchStation
+import NoSuchRoute,NoSuchStation
+from RailSystem import RailSystem
 
 def run_railsystem():
     railSystem = RailSystem()
@@ -30,10 +31,10 @@ def print_distance(railsystem):
         print("Output #%d",(trip.index(t) + 1), end=' ')
         try:
             distance = railsystem.distance_for_trip(t)
-        except NoSuchStation:
-            print("Stations does not exist!")
-        except NoSuchRoute:
-            print ("NO SUCH ROUTE")
+        except NoSuchStation as err:
+            print("Stations does not exist!",err)
+        except NoSuchRoute as err:
+            print("NO SUCH ROUTE", err)
 
         if distance:
             print("%d", (distance))

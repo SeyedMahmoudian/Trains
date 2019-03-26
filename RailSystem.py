@@ -1,6 +1,6 @@
 import sys
-import Station
-import Trip
+from Station import Station
+from Trip import Trip
 
 class RailSystem:
 
@@ -34,8 +34,9 @@ class RailSystem:
                 for z in self.find_all_trips(tripNames + [x], max_dpt - 1):
                     if len(z) <= max_stops:
                         newTrip = self.trip_for_stopnames(z)
-                        if newTrip.distance <= max_distance:
+                        if newTrip.distance() <= max_distance:
                             yield z
+
 
     def find_trip_from(self, name, max_dpt=10, max_stop=30, max_distance=50):
         all_trip_names = self.find_all_trips([name], max_dpt, max_stop, max_distance)
@@ -58,21 +59,21 @@ class RailSystem:
         return distance_trip
 
     def trips_with_stops(self, source, target, stops):
-        trips = self.find_trips_from_to(source, target, max_depth=15, max_stops=stops * 2)
+        trips = self.find_trips_from_to(source, target, max_dept=15, max_stops=stops * 2)
         matching = []
         for trip in trips:
-            if trip.stops_count() == stops:
+            if trip.stop_count() == stops:
                 matching.append(trip)
         return matching
 
     def trips_ordered_by_distance(self, trips):
-        trips_dict = self.trips_with_distance(trips)
+        trips_dict = self.trip_with_distance(trips)
         ordered_distance = sorted(trips_dict.keys())
         for distance in ordered_distance:
             yield trips_dict[distance]
 
     def shortest_from_to(self, startname, targetname):
-        all_trips = self.find_trips_from_to(startname, targetname, max_depth=15)
+        all_trips = self.find_trips_from_to(startname, targetname, max_dept=15)
         ordered_trips = list(self.trips_ordered_by_distance(all_trips))
         return ordered_trips[0]
 

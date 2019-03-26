@@ -10,7 +10,7 @@ class Station:
         self.distance_by_station[connection]=dist
 
     #Return instance of station
-    def conneciton(self):
+    def connecton(self):
         return self.distance_by_station.keys()
 
     def connection_names(self):
