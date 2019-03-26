@@ -2,7 +2,6 @@ import sys
 import Station
 import Trip
 
-
 class RailSystem:
 
     def __init__(self):

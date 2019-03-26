@@ -1,8 +1,7 @@
 import RailSystem, NoSuchRoute,NoSuchStation
 
-def railsystem():
+def run_railsystem():
     railSystem = RailSystem()
-
     railSystem.add_rail('A','B',5)
     railSystem.add_rail('B', 'C', 4)
     railSystem.add_rail('C', 'D', 8)
@@ -62,7 +61,7 @@ def print_distance_trips(railsystem):
 
 if __name__ == '__main__':
     """Call each of the sections to answer the ThoughtWorks problem."""
-    railsystem = railsystem()
+    railsystem = run_railsystem()
     print_distance(railsystem)
     print_stop(railsystem)
     print_short_trip(railsystem)
