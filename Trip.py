@@ -52,4 +52,5 @@ class Trip:
         return ('<'+
                 str([s.name for s in self.stops])+
                 'stops:'+str(self.stop_count())+
-                'distance')
+                'distance'+str(self.distance())+
+                '>')
