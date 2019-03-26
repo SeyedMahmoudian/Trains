@@ -1,5 +1,4 @@
 import sys
-from itertools import tee
 import NoSuchStation
 class Station:
     def __init__(self, name):
