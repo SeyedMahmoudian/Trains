@@ -1,4 +1,4 @@
-class TripStop:
+class Stop:
     def __init__(self, station):
         """create Station Object."""
         self.station = station
