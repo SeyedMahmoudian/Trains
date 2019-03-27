@@ -1,26 +1,30 @@
 import sys
-import NoSuchStation
+from NoSuchStation import NoSuchStation
+
+
 class Station:
     def __init__(self, name):
         self.name = name
-        self.distance_by_station = {}
+        self.distances_by_station = {}
         self.distance = sys.maxsize
 
-    def add_connection(self,connection,dist=0):
-        self.distance_by_station[connection]=dist
+    def add_connection(self, connection, dist=0):
+        self.distances_by_station[connection] = dist
 
-    #Return instance of station
-    def connecton(self):
-        return self.distance_by_station.keys()
+    def connections(self):
+        return self.distances_by_station.keys()
 
-    def connection_names(self):
-        names=[station.name for station in self.conneciton()]
+    def connection_name(self):
+        names = [station.name for station in self.connections()]
         return names
 
-    def distance_to(self,connection):
+    def distance_to(self, connection):
         try:
-            return self.distance_by_station[connection]
+            return self.distances_by_station[connection]
         except KeyError:
-            raise NoSuchStation("NO SUCH ROUTE")
+            raise NoSuchStation("No Such Route")
+
     def __str__(self):
-        return('<Station:'+str(self.name)+':'+str([x.name for x in self.distance_by_station])+'>')
+        return ('<Station: ' + str(self.name) + ': ' +
+                str([x.name for x in self.distances_by_station]) +
+                '>')
