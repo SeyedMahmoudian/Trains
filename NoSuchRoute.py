@@ -1,2 +1,0 @@
-class NoSuchRoute(Exception):
-    pass

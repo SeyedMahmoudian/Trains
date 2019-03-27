@@ -1,2 +1,0 @@
-class NoSuchStation(Exception):
-    pass
