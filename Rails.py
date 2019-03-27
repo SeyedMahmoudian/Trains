@@ -18,6 +18,7 @@ class Rails:
             self.add_station(arrive)
         self.stations_by_name[leave].add_connection(self.stations_by_name[arrive], distance)
 
+
     def trip_for_stopnames(self, stopnames=[]):
         matching_stations = [self.stations_by_name[name] for name in stopnames]
         return Trip(matching_stations)
