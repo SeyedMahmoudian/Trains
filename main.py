@@ -1,8 +1,15 @@
-from Rails import Rails
-from NoSuchStation import NoSuchStation
+"""
+File name : main.py
+Author : SeyedAmin SeyedMahmoudian
+
+"""
 from NoSuchRoute import NoSuchRoute
+from NoSuchStation import NoSuchStation
+from Rails import Rails
 
-
+"""
+Main class to run and test all the component of the application with right input
+"""
 def example():
     railsystem = Rails()
     railsystem.add_rail('A', 'B', 5)
